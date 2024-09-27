@@ -1,0 +1,18 @@
+body {
+    background-color: #f0f8ff; /* Нежный голубой фон */
+    color: #333333; /* Цвет текста */
+    font-family: Arial, sans-serif;
+}
+
+img {
+    width: 500px; /* Ширина изображения */
+    height: auto; /* Автоматическая пропорциональная высота */
+    display: block;
+    margin: 20px auto; /* Выравнивание по центру */
+    border-radius: 15px; /* Округленные края */
+}
+
+h1 {
+    text-align: center;
+    color: #2e8b57; /* Зеленый цвет для заголовка */
+}
