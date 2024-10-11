@@ -182,3 +182,7 @@ def add_flower(name):
         </body>
     </html>
     '''
+
+@app.route('/lab2/')
+def lab2():
+    return render_template('lab2.html')
