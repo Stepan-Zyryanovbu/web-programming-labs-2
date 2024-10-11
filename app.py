@@ -4,7 +4,9 @@ app = Flask(__name__)
 @app.route('/lab2/example')
 def example():
     name = 'Зырянов Степан'
-    return render_template('example.html', name=name)
+    group = 'ФБИ-24'
+    course = '3 курс'
+    return render_template('example.html', name=name, group=group, course=course)
 
 @app.route("/")
 @app.route("/index")
