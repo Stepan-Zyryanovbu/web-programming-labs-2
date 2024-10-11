@@ -6,7 +6,11 @@ def example():
     name = 'Зырянов Степан'
     group = 'ФБИ-24'
     course = '3 курс'
-    return render_template('example.html', name=name, group=group, course=course)
+    r1 = (11 * 28)
+    r2 = (3258 - 759)
+    r3 = (8452 / 793)
+    r4 = (458 ** 2)
+    return render_template('example.html', name=name, group=group, course=course, r1=r1, r2=r2, r3=r3, r4=r4)
 
 @app.route("/")
 @app.route("/index")

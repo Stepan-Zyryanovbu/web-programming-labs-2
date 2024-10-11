@@ -1,0 +1,128 @@
+/* Общие настройки страницы */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #f7f7f7, #e9ecef);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+/* Шапка страницы */
+header {
+    background-color: #0984e3; /* Голубой цвет шапки */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.8em;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideDown 1s ease-in-out;
+}
+
+/* Основной контейнер (body content) */
+main {
+    flex-grow: 1; /* Занимает оставшееся пространство */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Контейнер для контента */
+.container {
+    background-color: #ffffff;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 100%;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Низ страницы */
+footer {
+    background-color: #2d3436; /* Темный цвет низа */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideUp 1s ease-in-out;
+}
+
+/* Стили для заголовков */
+h1 {
+    font-size: 2.5em;
+    color: #2d3436;
+    font-weight: bold;
+    animation: pop 1s ease-in-out;
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #636e72;
+    font-weight: 600;
+}
+
+/* Стили для параграфов */
+p {
+    font-size: 1.2em;
+    color: #636e72;
+    line-height: 1.6;
+    animation: slideUp 1.5s ease-in-out;
+}
+
+/* Оформление списка */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.3em;
+    background: #f1f2f6;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+ul li:hover {
+    background: #dfe6e9;
+    animation: bounce 0.6s;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideUp {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+    0% { transform: translateY(-30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
