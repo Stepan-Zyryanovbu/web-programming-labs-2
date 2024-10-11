@@ -17,6 +17,12 @@
         WEB - программирование, 2 часть. {% if lab_num %}Лабораторная работа 2{% endif %}
     </header>
 
+    <ul>
+        {% for f in fruits %}
+        <li>{{loop.index}} - {{ f.name }}: {{ f.price }} &#x20bd;</li>
+        {% endfor %}
+    </ul>
+
     <main>
         {{r1}}, {{r2}}, {{r3}}, {{r4}}
     </main>
