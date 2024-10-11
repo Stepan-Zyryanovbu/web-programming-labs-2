@@ -166,10 +166,40 @@ flower_list = ['роза', 'тюльпан', 'незабудка', 'ромашк
 
 @app.route('/lab2/flowers/<int:flower_id>')
 def flowers(flower_id):
-    ...
+    if 0 <= flower_id < len(flower_list):
+        flower = flower_list[flower_id]
+        return f'''
+        <!doctype html>
+        <html>
+            <body>
+                <h1>Цветок №{flower_id + 1}</h1>
+                <p>Название цветка: {flower}</p>
+                <a href="/lab2/flowers">Посмотреть все цветы</a>
+            </body>
+        </html>
+        '''
+    else:
+        return "<h1>Цветок не найден!</h1>", 404
 
+@app.route('/lab2/clear_flowers')
+def clear_flowers():
+    flower_list.clear()
+    return '''
+    <!doctype html>
+    <html>
+        <body>
+            <h1>Список цветов очищен</h1>
+            <a href="/lab2/flowers">Посмотреть все цветы</a>
+        </body>
+    </html>
+    '''
+
+
+@app.route('/lab2/add_flower/')
 @app.route('/lab2/add_flower/<name>')
-def add_flower(name):
+def add_flower(name=None):
+    if not name:
+        return "<h1>Ошибка 400: вы не задали имя цветка</h1>", 400
     flower_list.append(name)
     return f'''
     <!doctype html>
@@ -178,10 +208,26 @@ def add_flower(name):
             <h1>Добавлен новый цветок</h1>
             <p>Название нового цветка: {name}</p>
             <p>Всего цветов: {len(flower_list)}</p>
-            <p>Полный список: {flower_list}</p>
+            <p>Полный список: {', '.join(flower_list)}</p>
+            <a href="/lab2/flowers">Посмотреть все цветы</a>
         </body>
     </html>
     '''
+@app.route('/lab2/flowers')
+def all_flowers():
+    flower_list_html = ''.join(f'<li>{flower}</li>' for flower in flower_list)
+    return f'''
+    <!doctype html>
+    <html>
+        <body>
+            <h1>Все цветы</h1>
+            <ul>{flower_list_html}</ul>
+            <p>Всего цветов: {len(flower_list)}</p>
+            <a href="/menu">Главное меню</a>
+        </body>
+    </html>
+    '''
+
 
 @app.route('/lab2/')
 def lab2():
@@ -191,3 +237,5 @@ def lab2():
 def filters():
     phrase = "О <b>сколько</b> <u>нам</u> <i>открытий</i> чудных..."
     return render_template('filter.html', phrase = phrase)
+
+
