@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ягоды</title>
+    <style>
+        .berry {
+            text-align: center;
+            margin: 20px;
+        }
+        img {
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ягоды</h1>
+    <div class="berries-list">
+        {% for berry in berries %}
+            <div class="berry">
+                <h2>{{ berry.name }}</h2>
+                <img src="{{ url_for('static', filename=berry.image) }}" alt="{{ berry.name }}">
+                <p>{{ berry.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

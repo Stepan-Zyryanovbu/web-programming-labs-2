@@ -285,4 +285,24 @@ books = [
 def books_list():
     return render_template('books.html', books=books)
 
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+# Список ягод с их изображениями и описаниями
+berries = [
+    {'name': 'Клубника', 'image': 'strawberry.jpg', 'description': 'Клубника — это сочная красная ягода, популярная в десертах и компотах.'},
+    {'name': 'Малина', 'image': 'raspberry.jpg', 'description': 'Малина — сладкая ягода с мелкими косточками, часто используется для джемов и варений.'},
+    {'name': 'Черника', 'image': 'blueberry.jpg', 'description': 'Черника — маленькие синие ягоды, известные своим вкусом и полезными свойствами.'},
+    {'name': 'Смородина', 'image': 'currant.jpg', 'description': 'Смородина — кислые ягоды, которые часто используются в выпечке и напитках.'},
+    {'name': 'Ежевика', 'image': 'blackberry.jpg', 'description': 'Ежевика — черные ягоды, которые прекрасно подходят для варенья и соусов.'}
+]
+
+@app.route('/lab2/berries')
+def berries_list():
+    return render_template('berries.html', berries=berries)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 
