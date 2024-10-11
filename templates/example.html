@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Зырянов Степан Павлович. Лабораторная работа 2</title>
+    <title>
+        {% if tittlename %}
+            {{ tittlename }}.
+        {% else %}
+            Анонимус,
+        {% endif %}
+        Лабораторная работа 2</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
     <header>
-        WEB - программирование, 2 часть. Лабораторная работа 2
+        WEB - программирование, 2 часть. {% if lab_num %}Лабораторная работа 2{% endif %}
     </header>
 
     <main>
@@ -16,7 +22,15 @@
     </main>
 
     <footer>
-        &copy; {{name}}, {{group}}, {{course}}, 2024
+        &copy; 
+        {% if name %}
+            {{ name }},
+        {% else %} 
+            Анонимус,
+        {% endif %}
+        {{ group }}, 
+        {{ course }}, 
+        2024
     </footer>
 </body>
 </html>
