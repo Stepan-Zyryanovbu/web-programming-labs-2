@@ -238,4 +238,51 @@ def filters():
     phrase = "О <b>сколько</b> <u>нам</u> <i>открытий</i> чудных..."
     return render_template('filter.html', phrase = phrase)
 
+@app.route('/lab2/calc/<int:a>/<int:b>')
+def calc(a, b):
+    summation = a + b
+    subtraction = a - b
+    multiplication = a * b
+    division = a / b if b != 0 else "На ноль делить нельзя"
+    exponentiation = a ** b
+    return f'''
+    <!doctype html>
+    <html>
+        <body>
+            <h1>Результаты операций с числами {a} и {b}</h1>
+            <p>Сумма: {a} + {b} = {summation}</p>
+            <p>Вычитание: {a} - {b} = {subtraction}</p>
+            <p>Умножение: {a} * {b} = {multiplication}</p>
+            <p>Деление: {a} / {b} = {division}</p>
+            <p>Возведение в степень: {a} ** {b} = {exponentiation}</p>
+            <a href="/lab2/calc/1/1">Вернуться к значениям по умолчанию (1, 1)</a>
+        </body>
+    </html>
+    '''
+
+@app.route('/lab2/calc/')
+def calc_default():
+    return redirect(url_for('calc', a=1, b=1))
+
+@app.route('/lab2/calc/<int:a>')
+def calc_with_one_param(a):
+    return redirect(url_for('calc', a=a, b=1))
+
+books = [
+    {'author': 'Джордж Оруэлл', 'title': '1984', 'genre': 'антиутопия', 'pages': 328},
+    {'author': 'Федор Достоевский', 'title': 'Преступление и наказание', 'genre': 'роман', 'pages': 671},
+    {'author': 'Лев Толстой', 'title': 'Война и мир', 'genre': 'исторический роман', 'pages': 1225},
+    {'author': 'Дж. Р. Р. Толкин', 'title': 'Властелин колец', 'genre': 'фэнтези', 'pages': 1137},
+    {'author': 'Рей Брэдбери', 'title': '451 градус по Фаренгейту', 'genre': 'фантастика', 'pages': 249},
+    {'author': 'Джоан Роулинг', 'title': 'Гарри Поттер и философский камень', 'genre': 'фэнтези', 'pages': 223},
+    {'author': 'Михаил Булгаков', 'title': 'Мастер и Маргарита', 'genre': 'роман', 'pages': 470},
+    {'author': 'Эрнест Хемингуэй', 'title': 'Старик и море', 'genre': 'повесть', 'pages': 127},
+    {'author': 'Габриэль Гарсиа Маркес', 'title': 'Сто лет одиночества', 'genre': 'магический реализм', 'pages': 417},
+    {'author': 'Франц Кафка', 'title': 'Процесс', 'genre': 'экзистенциальная проза', 'pages': 224}
+]
+
+@app.route('/lab2/books')
+def books_list():
+    return render_template('books.html', books=books)
+
 
