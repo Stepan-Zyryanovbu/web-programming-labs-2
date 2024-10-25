@@ -4,9 +4,10 @@ lab3 = Blueprint('lab3', __name__)
 
 @lab3.route('/lab3/')
 def lab():
-    name = request.cookies.get('name')
+    name = request.cookies.get('name') or 'аноним'
+    age = request.cookies.get('age') or 'неизвестен'
     name_color = request.cookies.get('name_color')
-    return render_template('lab3/lab3.html', name=name, name_color=name_color)
+    return render_template('lab3/lab3.html', name=name, age=age, name_color=name_color)
 
 
 @lab3.route('/lab3/cookie')
@@ -96,6 +97,48 @@ def settings():
         resp = make_response(render_template('lab3/settings.html', color=color, bg_color=bg_color, font_size=font_size))
     
     return resp
+
+
+@lab3.route('/lab3/ticket', methods=['GET', 'POST'])
+def train_ticket():
+    if request.method == 'POST':
+        # Получение данных из формы
+        full_name = request.form.get('full_name')
+        seat = request.form.get('seat')
+        bed = 'bed' in request.form
+        luggage = 'luggage' in request.form
+        age = int(request.form.get('age', 0))
+        departure = request.form.get('departure')
+        destination = request.form.get('destination')
+        travel_date = request.form.get('travel_date')
+        insurance = 'insurance' in request.form
+
+        # Проверка на пустые поля
+        if not all([full_name, seat, departure, destination, travel_date]) or age < 1 or age > 120:
+            return render_template('lab3/train_ticket_form.html', error="Все поля обязательны и возраст должен быть от 1 до 120.")
+
+        # Расчет стоимости билета
+        price = 700 if age < 18 else 1000  # Детский или взрослый билет
+        if seat in ['lower', 'side_lower']:
+            price += 100
+        if bed:
+            price += 75
+        if luggage:
+            price += 250
+        if insurance:
+            price += 150
+
+        # Определение типа билета
+        ticket_type = "Детский билет" if age < 18 else "Взрослый билет"
+
+        # Передача данных в шаблон результата
+        return render_template('lab3/ticket_result.html', full_name=full_name, age=age,
+                               ticket_type=ticket_type, seat=seat, departure=departure,
+                               destination=destination, travel_date=travel_date, price=price)
+
+    # Если метод GET, просто рендерим форму
+    return render_template('lab3/train_ticket_form.html')
+
 
 
 

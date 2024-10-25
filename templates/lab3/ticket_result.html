@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block lab %}Железнодорожный билет - Результат{% endblock %}
+
+{% block main %}
+<h1>Ваш билет</h1>
+<p>ФИО пассажира: {{ full_name }}</p>
+<p>Возраст: {{ age }} - {{ ticket_type }}</p>
+<p>Полка: {{ seat }}</p>
+<p>Пункт выезда: {{ departure }}</p>
+<p>Пункт назначения: {{ destination }}</p>
+<p>Дата поездки: {{ travel_date }}</p>
+<p>Итоговая стоимость: {{ price }} руб.</p>
+{% endblock %}
