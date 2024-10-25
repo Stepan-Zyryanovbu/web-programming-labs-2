@@ -140,5 +140,13 @@ def train_ticket():
     return render_template('lab3/train_ticket_form.html')
 
 
+@lab3.route('/lab3/clear_cookies')
+def clear_cookies():
+    resp = make_response(redirect('/lab3/settings'))  # Перенаправление обратно к настройкам
+    # Удаляем все куки, которые были установлены в обработчике /lab3/settings
+    resp.delete_cookie('color')
+    resp.delete_cookie('bg_color')
+    resp.delete_cookie('font_size')
+    return resp
 
 
