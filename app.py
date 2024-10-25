@@ -41,6 +41,7 @@ def menu():
         <nav>
             <ul>
                 <li><a href="/lab1">Первая лабораторная</a></li>
+                <li><a href="/lab2">Вторая лабораторная</a></li>
             </ul>
         </nav>
 
@@ -285,10 +286,6 @@ books = [
 def books_list():
     return render_template('books.html', books=books)
 
-from flask import Flask, render_template
-
-app = Flask(__name__)
-
 # Список ягод с их изображениями и описаниями
 berries = [
     {'name': 'Клубника', 'image': 'strawberry.jpg', 'description': 'Клубника — это сочная красная ягода, популярная в десертах и компотах.'},
@@ -302,7 +299,5 @@ berries = [
 def berries_list():
     return render_template('berries.html', berries=berries)
 
-if __name__ == '__main__':
-    app.run(debug=True)
 
 

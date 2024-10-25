@@ -9,8 +9,10 @@
         {% else %}
             Анонимус,
         {% endif %}
-        Лабораторная работа 2</title>
+        Лабораторная работа 2
+    </title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -35,7 +37,7 @@
             Анонимус,
         {% endif %}
         {{ group }}, 
-        {{ course }}, 
+        {{ course }},
         2024
     </footer>
 </body>
