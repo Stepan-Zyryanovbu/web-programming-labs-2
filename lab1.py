@@ -69,11 +69,11 @@ def oak():
 <!doctype html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="''' + url_for('static', filename='Lab1.css') + '''">
+        <link rel="stylesheet" type="text/css" href="''' + url_for('static', filename='lab1/Lab1.css') + '''">
     </head>
     <body>
         <h1>Дуб</h1>
-        <img src="''' + url_for('static', filename='oak.jpg') + '''">
+        <img src="''' + url_for('static', filename='lab1/oak.jpg') + '''">
     </body>
 </html>
 '''
@@ -84,11 +84,11 @@ def student():
 <!doctype html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="''' + url_for('static', filename='Lab1.css') + '''">
+        <link rel="stylesheet" type="text/css" href="''' + url_for('static', filename='lab1/Lab1.css') + '''">
     </head>
     <body>
         <h1>Студент: Зырянов Степан Павлович</h1>
-        <img src="''' + url_for('static', filename='nstu.jpg') + '''" alt="НГТУ лого">
+        <img src="''' + url_for('static', filename='lab1/nstu.jpg') + '''" alt="НГТУ лого">
     </body>
 </html>
 '''
@@ -99,14 +99,14 @@ def python_info():
 <!doctype html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="''' + url_for('static', filename='Lab1.css') + '''">
+        <link rel="stylesheet" type="text/css" href="''' + url_for('static', filename='lab1/Lab1.css') + '''">
     </head>
     <body>
         <h1>Про язык программирования Python</h1>
         <p>Python — это высокоуровневый язык программирования общего назначения, который известен своей читабельностью и простотой. Создан в 1991 году Гвидо ван Россумом.</p>
         <p>Python поддерживает несколько парадигм программирования, включая объектно-ориентированное, процедурное и функциональное программирование. Он широко используется в разработке веб-приложений, анализа данных, искусственного интеллекта и автоматизации.</p>
         <p>Благодаря огромному количеству библиотек, таких как Django, Flask, Pandas, и NumPy, Python стал одним из самых популярных языков программирования в мире.</p>
-        <img src="''' + url_for('static', filename='python.jpg') + '''" alt="Python лого">
+        <img src="''' + url_for('static', filename='lab1/python.jpg') + '''" alt="Python лого">
     </body>
 </html>
 '''
@@ -117,14 +117,14 @@ def drift():
 <!doctype html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="''' + url_for('static', filename='Lab1.css') + '''">
+        <link rel="stylesheet" type="text/css" href="''' + url_for('static', filename='lab1/Lab1.css') + '''">
     </head>
     <body>
         <h1>Зимний дрифт на Жигулях</h1>
         <p>Зимний дрифт на классических автомобилях Жигули — это захватывающее развлечение, которое стало популярным в России. Благодаря особенностям зимнего вождения и недостаточной управляемости заднеприводных автомобилей на скользкой дороге, дрифт становится и опасным, и интересным одновременно.</p>
         <p>Многие энтузиасты выбирают именно Жигули для дрифта, так как этот автомобиль доступен по цене и легко поддается доработкам. Дрифт на льду требует мастерства, но приносит массу удовольствия и зрелищности для наблюдателей.</p>
         <p>Проводятся даже специальные соревнования по зимнему дрифту, где автомобилисты демонстрируют свое мастерство и управление на льду.</p>
-        <img src="''' + url_for('static', filename='dftz.jpg') + '''" alt="Зимний дрифт">
+        <img src="''' + url_for('static', filename='lab1/dftz.jpg') + '''" alt="Зимний дрифт">
     </body>
 </html>
 '''
