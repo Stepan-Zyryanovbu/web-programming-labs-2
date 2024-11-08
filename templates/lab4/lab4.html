@@ -1,9 +1,48 @@
 {% extends "base.html" %}
-{% block lab %}Лабораторная работа 4{% endblock %}
+
+{# Номер лабораторной работы: #}
+{% block lab %} Лабораторная работа 4 {% endblock %}
+
+{# Основной контент: #}
 {% block main %}
-    <h1>Формы (POST)</h1>
-    <div>Тема лабораторной - Формы (POST). Список сделанных страниц: </div>
+    <h1>Формы, (POST)</h1>
+    <div>Тема лабораторной работы - Формы (POST).Список сделанных страниц:</div>
     <ol>
-        <li><a href="">***</a></\i>
-</ol>
+        <li>
+            <a href="/lab4/div-form">Деление</a>
+        </li>
+
+        <li>
+            <a href="/lab4/summa-form">Сумма чисел</a>
+        </li>
+
+        <li>
+            <a href="/lab4/mult-form">Произведение чисел</a>
+        </li>
+
+        <li>
+            <a href="/lab4/razn-form">Разность чисел</a>
+        </li>
+
+        <li>
+            <a href="/lab4/stepen-form">Возведение в степень</a>
+        </li>
+
+        <li>
+            <a href="/lab4/tree">Деревья</a>
+        </li>
+
+        <li>
+            <a href="/lab4/login">Авторизация</a>
+        </li>
+
+        <li>
+            <a href="/lab4/fridge">Холодильник</a>
+        </li>
+
+        <li>
+            <a href="/lab4/seed">Заказ зерна</a>
+        </li>
+        
+    </ol>
 {% endblock %}
