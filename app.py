@@ -13,6 +13,7 @@ app.register_blueprint(lab3)
 def start():
     return redirect("/menu", code=302)
 
+
 @app.route("/menu")
 def menu():
     return ('menu.html')
