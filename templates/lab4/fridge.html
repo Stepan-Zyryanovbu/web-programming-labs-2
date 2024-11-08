@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{# Номер лабораторной работы: #}
+{% block lab %} Лабораторная работа 4{% endblock %}
+
+{# Основной контент: #}
+{% block main %}
+    <h1>Установите температуру холодильника</h1>
+    <p>Введите значение в диапазоне от -12°С до -1°С</p>
+    <form method="post">
+        <label for="temperature">Температура (°С):</label>
+        <input type="text" id="temperature" name="temperature" required>
+        <button type="submit">Установить</button>
+    </form>
+    {% if phraze %}
+        <span style="color: blue; font-weight: bold;">{{ phraze }}</span>
+    {% endif %}
+    {% if snow %}
+            {% for i in range(snow) %}
+                <span>&#10052;</span>
+            {% endfor %}
+    {% endif %}
+{% endblock %}

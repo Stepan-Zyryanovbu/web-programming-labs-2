@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{# Номер лабораторной работы: #}
+{% block lab %} Лабораторная работа 4 {% endblock %}
+
+{# Основной контент: #}
+{% block main %}
+    <h2>Оформить заказ</h2>
+    <form method="POST">
+        <label for="seed">Выберите зерно:</label>
+        <select name="seed" id="seed">
+            <option value="barley">Ячмень</option>
+            <option value="oats">Овёс</option>
+            <option value="wheat">Пшеница</option>
+            <option value="rye">Рожь</option>
+        </select>
+        <br> <br>
+        <label for="weight">Введите вес (в тоннах):</label>
+        <input type="number" name="weight" id="weight" min="1">
+        <button type="submit">Оформить заказ</button>
+    </form>
+    {% if phraze %}
+        <p>{{ phraze }}</p>
+    {% endif %}
+    {% if discount %}
+        <p>{{ discount }}</p>
+    {% endif %}
+{% endblock %}
