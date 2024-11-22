@@ -6,7 +6,12 @@
 {# Основной контент: #}
 {% block main %}
     <h1>«Flask и БД»</h1>
+    
+    {# Проверяем, есть ли логин. Если нет, выводим "Anonymous" #}
+    <p>Пользователь: {{ username if username else "Anonymous" }}</p>
+
     <div></div>
     <ol>
+        <!-- Дополнительный контент -->
     </ol>
 {% endblock %}
