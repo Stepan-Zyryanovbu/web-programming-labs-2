@@ -111,13 +111,29 @@ def create():
     title = request.form.get('title')
     article_text = request.form.get('article_text')
     if not title or not article_text:  
-            return render_template('lab5/create_article.html', error='Все поля должны быть заполнены!')
+        return render_template('lab5/create_article.html', error='Все поля должны быть заполнены!')
+    
     conn, cur = db_connect()
-    cur.execute('SELECT login FROM users WHERE login=?', (login, ))
-    user_id = cur.fetchone()['id']
-    cur.execute(f"INSERT INTO articles (user_id, title, article_text) VALUES (?, ?, ?);", (user_id, title, article_text))
+    
+    if current_app.config['DB_TYPE'] == 'postgres':
+        cur.execute('SELECT id FROM users WHERE login=%s;', (login,))
+    else:
+        cur.execute('SELECT id FROM users WHERE login=?;', (login,))
+    
+    user = cur.fetchone()
+    if not user:
+        db_close(conn, cur)
+        return render_template('lab5/create_article.html', error='Пользователь не найден.')
+    
+    user_id = user['id']
+    if current_app.config['DB_TYPE'] == 'postgres':
+        cur.execute("INSERT INTO articles (user_id, title, article_text) VALUES (%s, %s, %s);", (user_id, title, article_text))
+    else:
+        cur.execute("INSERT INTO articles (user_id, title, article_text) VALUES (?, ?, ?);", (user_id, title, article_text))
+    
     db_close(conn, cur)
-    return redirect ('/lab5')
+    return redirect('/lab5')
+
 
 @lab5.route('/lab5/list')
 def list():
