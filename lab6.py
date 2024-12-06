@@ -19,11 +19,63 @@ def api():
         total_cost = sum(office['price'] for office in offices if office['tenant'])
         return {
             'jsonrpc': '2.0',
-            'result': offices,
+            'result': {
+                'offices': offices,
+                'total_cost': total_cost
+            },
             'id': id
         }
+    login = session.get('login')
+    if not login: 
+        return {
+        'jsonrpc': '2.0', 
+        'error': {
+            'code': 1,
+            'message': 'Unauthorized'
+        },
+        'id': id
+    }
+    if data['method'] == 'booking':
+        office_number = data['params']
+        for office in offices:
+            if office['number'] == office_number:
+                if office['tenant'] != '':
+                    return {
+                        'jsonrpc': '2.0', 
+                        'error': {
+                            'code': 2,
+                            'message': 'Already'
+                        },
+                        'id': id
+                    }
+                office['tenant'] = login
+                return {
+                'jsonrpc': '2.0', 
+                'result': 'success',
+                'id': id
+                }
+            
+    if data['method'] == 'cancellation':
+        office_number = data['params']
+        for office in offices:
+            if office['number'] == office_number:
+                if office['tenant'] != login:
+                    return {
+                        'jsonrpc': '2.0',
+                        'error': {
+                            'code': 3,
+                            'message': 'Forbidden'
+                        },
+                        'id': id
+                    }
+                office['tenant'] = ''
+                return {
+                    'jsonrpc': '2.0',
+                    'result': 'success',
+                    'id': id
+                }
     return {
-        'josnrpc': '2.0',
+        'jsonrpc': '2.0', 
         'error': {
             'code': -32601,
             'message': 'Method not found'

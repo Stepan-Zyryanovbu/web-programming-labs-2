@@ -120,7 +120,15 @@
                         alert('Странная ошибка');
                         break;
                 }
-}
+            } else {
+                document.getElementById('office-list').innerHTML = '';
+                getOfficeList();
+            }
+        });
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+        getOfficeList();
+    })
 </script>
 {% block styles %}
 
