@@ -96,6 +96,7 @@ function sendFilm() {
             document.getElementById('description-error').innerText = errors.description;
     });
 }
+
 function editFilm(id) {
     fetch (`/lab7/rest-api/films/${id}`)
     .then (function(data){
