@@ -47,12 +47,10 @@ function deleteFilm(id, title) {
         });
 }
 
-
 function showModal() {
     document.querySelector('div.modal').style.display = 'block';
     document.getElementById('description-error').innerText = '';
 }
-
 
 function hideModal() {
     document.querySelector('div.modal').style.display = 'none'
