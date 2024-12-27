@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{# Номер лабораторной работы: #}
+{% block lab %} Лабораторная работа 7 {% endblock %}
+
+{% block script %}
+
+{% endblock %}
+
+{# Основной контент: #}
+{% block main %}
+    <h2 style="text-align: center;"> База знаний</h2>
+
+    <div class="blocks">
+        <div class="block1">
+            <div class="bl">
+                <a href="{{ url_for('lab8.article_list') }}" >Список статей</a>
+            </div>
+    
+            <div class="bl">
+                <a href="{{ url_for('lab8.create') }}">Создать статью</a>
+            </div>
+    
+            <div class="bl">
+                <a href="{{ url_for('lab8.login') }}">Войти</a>
+            </div>
+    
+            <div class="bl">
+                <a href="{{ url_for('lab8.register') }}">Регистрация</a>
+            </div>
+
+            <div>
+                <a href="{{ url_for('lab8.logout') }}">Выход</a>
+            </div>
+        </div>
+        <div class="block2">
+            {{ login if login else 'Anonymous' }}
+        </div>
+    </div>
+{% endblock %}
