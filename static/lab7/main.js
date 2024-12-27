@@ -37,6 +37,7 @@ function fillFilmList() {
     })
 }
 
+
 function deleteFilm(id, title) {
     if (! confirm (`Вы точно хотите удалить фильм "${title}"?`))
         return;
@@ -46,18 +47,22 @@ function deleteFilm(id, title) {
         });
 }
 
+
 function showModal() {
     document.querySelector('div.modal').style.display = 'block';
     document.getElementById('description-error').innerText = '';
 }
 
+
 function hideModal() {
     document.querySelector('div.modal').style.display = 'none'
 }
 
+
 function cancel() {
     hideModal();
 }
+
 
 function addFilm() {
     document.getElementById('id').value = '';
@@ -67,6 +72,7 @@ function addFilm() {
     document.getElementById('description').value = '';
     showModal();
 }
+
 
 function sendFilm() {
     const id = document.getElementById('id').value;
@@ -96,6 +102,7 @@ function sendFilm() {
             document.getElementById('description-error').innerText = errors.description;
     });
 }
+
 
 function editFilm(id) {
     fetch (`/lab7/rest-api/films/${id}`)
