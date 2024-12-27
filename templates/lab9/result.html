@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block lab %} Лабораторная работа 9 {% endblock %}
+
+{% block script %}
+<style>
+    body {
+        text-align: center;
+        margin: 0;
+    }
+    h1 {
+        color: #d32f2f;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block main %}
+    <h1>{{ greeting }}</h1>
+    <p>{{ gift }}</p>
+    <img src="{{ url_for('static', filename=image) }}" alt="Подарок">
+
+{% endblock %}

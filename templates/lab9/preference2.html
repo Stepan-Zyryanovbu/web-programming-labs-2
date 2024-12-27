@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block lab %} Лабораторная работа 9 {% endblock %}
+
+{% block script %}
+<style>
+    body {
+        text-align: center;
+        margin: 0;
+    }
+    h1 {
+        color: #d32f2f;
+    }
+    form {
+        margin-top: 20px;
+    }
+    input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #d32f2f;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin: 5px;
+    }
+    input[type="submit"]:hover {
+        background-color: #761818;
+    }
+</style>
+
+{% endblock %}
+
+{% block main %}
+    <h1>Новогодняя открытка</h1>
+    <form method="POST">
+        {% if session['preference1'] == 'tasty' %}
+            <label>Что вам больше нравится?</label><br><br>
+            <input type="submit" name="preference2" value="sweet"> Сладкое<br><br>
+            <input type="submit" name="preference2" value="savory"> Сытное<br><br>
+        {% else %}
+            <label>Что вам больше нравится?</label><br><br>
+            <input type="submit" name="preference2" value="decor"> Новогодние украшения<br><br>
+            <input type="submit" name="preference2" value="tree"> Елочные украшения <br><br>
+        {% endif %}
+    </form>
+
+{% endblock %}
